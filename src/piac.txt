@@ -1,0 +1,6 @@
+tojás;1 db;100;TRUE;sós
+cukor; 1 kg;250;TRUE;édes
+vaj;100 g;1000;FALSE;sós
+Milka csoki;1 tábla;666;FALSE;édes
+rizs;1 kg;800;FALSE;sós
+pityóka;1 kg;400;TRUE;sós

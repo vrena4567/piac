@@ -1,17 +1,29 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        List<Food> foodList = new ArrayList<>();
+        List<String> listOfPiac = FileReader.fileReader("src/piac.txt");
+        for (var line : listOfPiac) {
+            String[] lineAsArray = line.split(";");
+            String name = lineAsArray[0];
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            String[] wordAsArray = lineAsArray[1].split(" ");
+            String quantity = "";
+            for (var word: wordAsArray) {
+                String number = wordAsArray[0];
+                String unity = wordAsArray[1];
+                quantity = number +" " + unity;
+            }
+            int price = Integer.parseInt(lineAsArray[2]);
+            String hasRegulation = lineAsArray[3];
+            Taste tase = (lineAsArray[4].equals("sós")) ? Taste.SOS : Taste.EDES;
+            Food food = new Food(name, quantity, price, hasRegulation, tase);
+            foodList.add(food);
+        }
+        for (var lines : foodList) {
+            System.out.println(lines);
         }
     }
 }
